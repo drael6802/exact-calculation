@@ -72,7 +72,7 @@ function MemberList({
 								}
 							}}
 						>
-							멤버 추가
+							추가
 						</button>
 					</div>
 				</div>

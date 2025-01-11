@@ -239,7 +239,7 @@ input[type="checkbox"] {
     .menu-item-inputs button,
     .member-add-inputs button,
     .member-info button {
-        flex: 0 0 120px;
+        /*flex: 0 0 120px;*/
     }
 
 
