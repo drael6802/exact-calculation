@@ -20,8 +20,8 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 16px;
-    background: linear-gradient(135deg, #2a2a2a, #1e1e1e);
+    /*padding: 16px;*/
+    /*background: linear-gradient(135deg, #2a2a2a, #1e1e1e);*/
     gap: 16px;
 }
 
