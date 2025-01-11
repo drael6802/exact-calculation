@@ -5,15 +5,15 @@ import ResultSection from './components/ResultSection';
 
 function App() {
 	const [menuList, setMenuList] = useState([
-		{ name: '파스타', unitPrice: 15000, count: 2, price: 30000, members: [] },
-		{ name: '삼겹살', unitPrice: 10000, count: 1, price: 10000, members: [] },
-		{ name: '국밥', unitPrice: 10000, count: 2, price: 20000, members: [] },
+		/*{ name: '파스타', unitPrice: 15000, count: 2, price: 30000, members: [] },
+		{ name: '삼겹살', unitPrice: 10000, count: 1, price: 10000, members: []},
+		{ name: '국밥', unitPrice: 10000, count: 2, price: 20000, members: [] },*/
 	]);
 
 	const [memberList, setMemberList] = useState([
-		{ name: '홍길동' },
+		/*{ name: '홍길동' },
 		{ name: '홍길순' },
-		{ name: '이상훈' },
+		{ name: '이상훈' },*/
 	]);
 
 	const [result, setResult] = useState({});
