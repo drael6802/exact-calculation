@@ -66,7 +66,7 @@ function App() {
 	const addMenu = (name, unitPrice, count) => {
 		if (name && unitPrice > 0 && count > 0) {
 			if (menuList.some((item) => item.name === name)) {
-				alert('이미 존재하는 메뉴입니다!');
+				alert('이미 존재하는 메뉴입니다! 중복된 메뉴는 입력 할 수 없습니다.');
 				return;
 			}
 
@@ -81,7 +81,7 @@ function App() {
 				},
 			]);
 		} else {
-			alert('모든 항목을 올바르게 입력하세요!');
+			alert('모든 항목을 입력하세요!');
 		}
 	};
 

@@ -87,12 +87,10 @@ function MenuList({menuList, setMenuList, deleteMenu, addMenu}) {
 					ref={newMenuPriceRef}
 					type="number"
 					placeholder="단가"
-					value="0"
 					onChange={handlePriceChange}/> <input
 					ref={newMenuCountRef}
 					type="number"
 					placeholder="수량"
-					value="1"
 					onChange={handlePriceChange}/>
 
 					<input type="text" disabled value={`= ${new Intl.NumberFormat('ko-KR').format(Math.ceil(price))} 원`}/>
@@ -120,9 +118,9 @@ function MenuList({menuList, setMenuList, deleteMenu, addMenu}) {
 							addMenu(name, unitPrice, count);
 
 							// 입력값 초기화
-							newMenuNameRef.current.value = '';
-							newMenuPriceRef.current.value = '0';
-							newMenuCountRef.current.value = 1;
+							//newMenuNameRef.current.value = '';
+							//newMenuPriceRef.current.value = '0';
+							//newMenuCountRef.current.value = 1;
 						}}
 					>
 						추가
