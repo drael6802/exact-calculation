@@ -118,9 +118,9 @@ function MenuList({menuList, setMenuList, deleteMenu, addMenu}) {
 							addMenu(name, unitPrice, count);
 
 							// 입력값 초기화
-							//newMenuNameRef.current.value = '';
-							//newMenuPriceRef.current.value = '0';
-							//newMenuCountRef.current.value = 1;
+							newMenuNameRef.current.value = '';
+							newMenuPriceRef.current.value = '';
+							newMenuCountRef.current.value = '';
 						}}
 					>
 						추가
