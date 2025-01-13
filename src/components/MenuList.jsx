@@ -1,12 +1,11 @@
 import { useRef, useState } from "react";
 
 function MenuList({menuList, setMenuList, deleteMenu, addMenu}) {
-	const [price, setPrice] = useState(0); // 실시간 출력용 상태
+	const [price, setPrice] = useState(""); // 실시간 출력용 상태
 	// useRef로 input 요소들을 참조
 	const newMenuNameRef = useRef(null);
 	const newMenuUnitPriceRef = useRef(null);
 	const newMenuCountRef = useRef(null);
-	const newMenuPriceRef = useRef(null);
 
 	const handlePriceChange = () => {
 		const unitPrice = parseInt(newMenuUnitPriceRef.current.value, 10) || 0;
@@ -94,27 +93,11 @@ function MenuList({menuList, setMenuList, deleteMenu, addMenu}) {
 					placeholder="수량"
 					onChange={handlePriceChange}/>
 
-					{/*<input type="text" ref={newMenuPriceRef} value={`= ${new Intl.NumberFormat('ko-KR').format(Math.ceil(price))} 원`}/>*/}
-
 					<input
 						type="text"
-						ref={newMenuPriceRef}
 						value={price > 0 ? `= ${new Intl.NumberFormat('ko-KR').format(Math.ceil(price))} 원` : "="}
 					/>
 
-					{/*
-					<div className="menu-price">
-						{" = " +
-							(newMenuPriceRef.current && newMenuCountRef.current
-								? new Intl.NumberFormat('ko-KR').format(
-									Math.ceil(
-										newMenuPriceRef.current.value * newMenuCountRef.current.value
-									)
-								)
-								: 0)
-						}원
-					</div>
-					*/}
 					<button
 						onClick={() => {
 							// useRef로 값을 가져와서 addMenu 호출
@@ -128,7 +111,6 @@ function MenuList({menuList, setMenuList, deleteMenu, addMenu}) {
 							newMenuNameRef.current.value = '';
 							newMenuUnitPriceRef.current.value = '';
 							newMenuCountRef.current.value = '';
-							//newMenuPriceRef.current.value = '=';
 							setPrice("="); // price 상태 초기화
 						}}
 					>
