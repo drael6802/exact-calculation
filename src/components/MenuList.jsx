@@ -4,11 +4,12 @@ function MenuList({menuList, setMenuList, deleteMenu, addMenu}) {
 	const [price, setPrice] = useState(0); // 실시간 출력용 상태
 	// useRef로 input 요소들을 참조
 	const newMenuNameRef = useRef(null);
-	const newMenuPriceRef = useRef(null);
+	const newMenuUnitPriceRef = useRef(null);
 	const newMenuCountRef = useRef(null);
+	const newMenuPriceRef = useRef(null);
 
 	const handlePriceChange = () => {
-		const unitPrice = parseInt(newMenuPriceRef.current.value, 10) || 0;
+		const unitPrice = parseInt(newMenuUnitPriceRef.current.value, 10) || 0;
 		const count = parseInt(newMenuCountRef.current.value, 10) || 0;
 		setPrice(unitPrice * count); // 단가와 수량 변화에 따라 실시간 계산
 	};
@@ -84,7 +85,7 @@ function MenuList({menuList, setMenuList, deleteMenu, addMenu}) {
 				{/*<h4>새로운 메뉴 추가</h4>*/}
 				<div className="menu-item-inputs">
 					<input ref={newMenuNameRef} placeholder="메뉴 이름"/> <input
-					ref={newMenuPriceRef}
+					ref={newMenuUnitPriceRef}
 					type="number"
 					placeholder="단가"
 					onChange={handlePriceChange}/> <input
@@ -93,7 +94,13 @@ function MenuList({menuList, setMenuList, deleteMenu, addMenu}) {
 					placeholder="수량"
 					onChange={handlePriceChange}/>
 
-					<input type="text" disabled value={`= ${new Intl.NumberFormat('ko-KR').format(Math.ceil(price))} 원`}/>
+					{/*<input type="text" ref={newMenuPriceRef} value={`= ${new Intl.NumberFormat('ko-KR').format(Math.ceil(price))} 원`}/>*/}
+
+					<input
+						type="text"
+						ref={newMenuPriceRef}
+						value={price > 0 ? `= ${new Intl.NumberFormat('ko-KR').format(Math.ceil(price))} 원` : "="}
+					/>
 
 					{/*
 					<div className="menu-price">
@@ -112,19 +119,22 @@ function MenuList({menuList, setMenuList, deleteMenu, addMenu}) {
 						onClick={() => {
 							// useRef로 값을 가져와서 addMenu 호출
 							const name = newMenuNameRef.current.value;
-							const unitPrice = parseInt(newMenuPriceRef.current.value, 10);
+							const unitPrice = parseInt(newMenuUnitPriceRef.current.value, 10);
 							const count = parseInt(newMenuCountRef.current.value, 10);
 
 							addMenu(name, unitPrice, count);
 
 							// 입력값 초기화
 							newMenuNameRef.current.value = '';
-							newMenuPriceRef.current.value = '';
+							newMenuUnitPriceRef.current.value = '';
 							newMenuCountRef.current.value = '';
+							//newMenuPriceRef.current.value = '=';
+							setPrice("="); // price 상태 초기화
 						}}
 					>
 						추가
 					</button>
+
 				</div>
 			</div>
 		</div>
